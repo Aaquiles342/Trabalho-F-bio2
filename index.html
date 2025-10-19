@@ -11,7 +11,7 @@
 body {
   font-family: 'Lora', serif;
   background: #fdf6e3;
-  color: #333;
+  color: #000000;
   margin: 0;
 }
 
@@ -29,35 +29,27 @@ body {
   transition: opacity 0.5s ease-in-out;
 }
 
-.active {
-  display: block;
-  opacity: 1;
-}
+.active { display: block; opacity: 1; }
 
-h1, h2, h3 {
-  color: #5b4636;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-}
-
+h1, h2, h3 { color: #5b4636; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
 h1 { font-size: 3em; margin-bottom: 0.5em; text-align:center; }
 h2 { font-size: 2.2em; margin-bottom: 0.5em; text-decoration: underline; }
 h3 { font-size: 1.8em; margin-bottom: 0.5em; text-decoration: underline; }
 
 p { font-size: 1.2em; line-height: 1.9em; margin-top: 20px; text-align: justify; }
-strong { color: #111111; }
-em { font-style: italic; color: #111111; }
-u { text-decoration: underline; color: #111111; }
-a { color: #111111; text-decoration: underline; }
+strong { color: #7c5b3d; }
+em { font-style: italic; color: #5b4636; }
+u { text-decoration: underline; color: #5b4636; }
+a { color: #5b4636; text-decoration: underline; }
 
 .nav {
   position: fixed;
-  bottom: 0;
+  bottom: 20px;
   width: 100%;
-  background: rgba(92, 64, 48, 0.9);
   text-align: center;
   z-index: 100;
+  background: rgba(255, 246, 227, 0.8); /* fundo suave nos botões */
   padding: 10px 0;
-  box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
 }
 
 .nav button {
@@ -78,17 +70,11 @@ a { color: #111111; text-decoration: underline; }
 .nav button:disabled { background: #bbb; cursor: default; }
 
 @media (max-width: 768px) {
-  .slide { padding: 30px 10px; min-height: auto; }
+  .slide { padding: 30px 15px; min-height: auto; }
   h1 { font-size: 2em; }
   h2 { font-size: 1.6em; }
   h3 { font-size: 1.3em; }
   p { font-size: 1em; line-height: 1.6em; }
-
-  .nav {
-    position: relative;
-    margin-top: 20px;
-    box-shadow: none;
-  }
   .nav button { padding: 10px 15px; font-size: 0.9em; margin: 0 5px; }
 }
 </style>
@@ -280,27 +266,13 @@ document.addEventListener('keydown', e=>{
 let touchStartX = 0;
 let touchEndX = 0;
 
-document.addEventListener('touchstart', e => {
-  touchStartX = e.changedTouches[0].screenX;
-});
-
-document.addEventListener('touchend', e => {
-  touchEndX = e.changedTouches[0].screenX;
-  handleGesture();
-});
-
+document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+document.addEventListener('touchend', e => { touchEndX = e.changedTouches[0].screenX; handleGesture(); });
 function handleGesture() {
-  if (touchEndX < touchStartX - 50) { // swipe para esquerda
-    nextBtn.click();
-  }
-  if (touchEndX > touchStartX + 50) { // swipe para direita
-    prevBtn.click();
-  }
+  if (touchEndX < touchStartX - 50) { nextBtn.click(); }
+  if (touchEndX > touchStartX + 50) { prevBtn.click(); }
 }
 </script>
 
 </body>
 </html>
-
-
-
