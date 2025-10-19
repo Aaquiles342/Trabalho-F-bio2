@@ -51,13 +51,12 @@ a { color: #5b4636; text-decoration: underline; }
 
 .nav {
   position: fixed;
-  bottom: 0;
+  bottom: 20px;
   width: 100%;
-  background: rgba(92, 64, 48, 0.9);
   text-align: center;
   z-index: 100;
+  background: rgba(93, 72, 54, 0.1); /* leve transparência para não ficar feio */
   padding: 10px 0;
-  box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
 }
 
 .nav button {
@@ -78,17 +77,24 @@ a { color: #5b4636; text-decoration: underline; }
 .nav button:disabled { background: #bbb; cursor: default; }
 
 @media (max-width: 768px) {
-  .slide { padding: 30px 10px; min-height: auto; }
+  .slide { 
+    padding: 30px 15px; 
+    min-height: auto; 
+    margin-bottom: 70px; /* espaço para a nav */
+  }
+
   h1 { font-size: 2em; }
   h2 { font-size: 1.6em; }
   h3 { font-size: 1.3em; }
   p { font-size: 1em; line-height: 1.6em; }
 
   .nav {
-    position: relative;
-    margin-top: 20px;
+    position: relative; /* não fica mais fixo sobre o conteúdo */
+    margin-top: 0;
     box-shadow: none;
+    background: rgba(93, 72, 54, 0.1); /* mantém leve corzinha */
   }
+
   .nav button { padding: 10px 15px; font-size: 0.9em; margin: 0 5px; }
 }
 </style>
